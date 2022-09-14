@@ -1,12 +1,12 @@
 # Suspicious Face Detection 
 
-##Introduction
+## Introduction
 
 This project is based on the detection of suspicious behavior of a person analysing the facial aspects of the respective person. The project primarily focuses the implementation to be done as a lab monitoring system. The system would consist of the following features:
-1. Detection of Face : Identifying 'No Face' and 'Multiple Faces' detection scenarios
-2. Detection of Light Intensity : possesses a threshold value
-3. Detection of Lip Movement : recognition of speaking
-4. Detection of Head Orientation : possesses a threshold angle of orientation
+1. Detection of Face : _Identifying 'No Face' and 'Multiple Faces' detection scenarios_
+2. Detection of Light Intensity : _possesses a threshold value_
+3. Detection of Lip Movement : _recognition of speaking_
+4. Detection of Head Orientation : _possesses a threshold angle of orientation_
 5. Analysis of Facial Expressions 
 6. Tracking of Eye
 
