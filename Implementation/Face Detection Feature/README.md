@@ -5,10 +5,11 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 #### HAAR Classifier with AdaBoost algorithm
 - Less Detection Reliablity
   - Detection of Non-Faces as Faces at some instances
+    <img src="../../assets/images/team_photo.png" align="center" width="400">
   - No detection of faces when the lighting is less  
   
   
-  <img src="../../assets/images/team_photo.png" align="center" width="400">
+  
 
 
 Thus, a convolutional neural network was attempted to be employed.
