@@ -1,4 +1,4 @@
-# Suspicious Face Detection : _A Monitoring System_
+# Suspicious Face Detection : A Monitoring System
 
 ## Introduction
 
