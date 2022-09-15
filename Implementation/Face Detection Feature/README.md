@@ -7,7 +7,7 @@ Also, the monitoring system ensures that the student solely does his work. Here 
   - Detection of Non-Faces as Faces at some instances
   - No detection of faces when the lighting is less  
   
-  <img src="../../assets/images/team_photo.png" align="left" width="400" >
+  <img src="../../assets/images/team_photo.png" align="right" width="400" >
   
 
 
