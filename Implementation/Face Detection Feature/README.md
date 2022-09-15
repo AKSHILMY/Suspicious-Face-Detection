@@ -9,7 +9,6 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 - Less Detection Reliablity
   - Detection of Non-Faces as Faces at some instances
   - No detection of faces when the lighting is less  
-<br></br>
 Thus, a convolutional neural network was attempted to be employed.
 #### Multi-Task Convolution Neural Network (MTCNN)
 - The MTCCN detection is capable of detecting the face under a considerably less lighting with higher reliability than the boosted HAAR classifier. 
