@@ -3,8 +3,9 @@ The detection of the face is an essential feature for this monitoring system. Th
 Also, the monitoring system ensures that the student solely does his work. Here is when the detection of multiple faces comes to play.
 
 #### HAAR Classifier with AdaBoost algorithm
-
+<span>
   <img src="../../assets/images/team_photo.png" align="right" width="400" >
+  <img src="../../assets/images/team_photo.png" align="right" width="400" ></span>
 
 - Less Detection Reliablity
   - Detection of Non-Faces as Faces at some instances
