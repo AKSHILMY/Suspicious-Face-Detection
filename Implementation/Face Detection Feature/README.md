@@ -21,7 +21,9 @@ Thus, a convolutional neural network was attempted to be employed.
 
 | Detection Strategy | Description | Approximate FPS | Limitations | Positives|
 |:---| :---| :---| :---| :---|
-| `HAAR Classifier` | | | | |
+| `HAAR Classifier` | | | - Less Detection Reliablity
+- Less Detection Reliablity
+- Less Detection Reliablity| |
 | `Multi-Task CNN`| | | | |
 | `MediaPipe Model`| | | | |
 
