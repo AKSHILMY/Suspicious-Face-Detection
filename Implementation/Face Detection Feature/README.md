@@ -12,9 +12,9 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 
 ### The Background Of the Selected _MediaPipe Face Detection_ Model
 ### Resources
-1. [MediaPipe Face Detection Model](https://google.github.io/mediapipe/solutions/face_detection)  
-2. [Blaze Face](https://arxiv.org/abs/1907.05047)
-3. [MobileNetV1/V2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html)
+- [MediaPipe Face Detection Model](https://google.github.io/mediapipe/solutions/face_detection)  
+- [Blaze Face](https://arxiv.org/abs/1907.05047)
+- [MobileNetV1/V2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html)
 
 
 
