@@ -4,11 +4,11 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 
 ### **Overview Of the Tested Face Detection Stategies**
 
-| Detection Strategy | Description | Speed _FPS_ | Limitations | Positives|Improvements|
+| Detection Strategy | Description | Mean Speed _FPS_ | Limitations | Positives|Improvements|
 |:---|:---|:---|:---|:---|:---|
 | `HAAR Classifier` | | | Detection of Non-Faces as Faces at some instances <br> No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
 | `Multi-Task CNN`| | | | |- Asynchronous Programming<br> - Multi-Threading|
-| `MediaPipe Model`| | Mean: 40 <br> Max: 160+ | | | |
+| `MediaPipe Model`| | ~45 | | | |
 
 ### The Background Of the Selected _MediaPipe Face Detection_ Model
 ### Resources
