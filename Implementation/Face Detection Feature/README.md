@@ -21,8 +21,8 @@ Thus, a convolutional neural network was attempted to be employed.
 
 | Detection Strategy | Description | Approximate FPS | Limitations | Positives|
 |:---| :---| :---| :---| :---|
-| `HAAR` | | | | |
-| `MTCNN`| | | | |
+| `HAAR Classifier _Boosted_` | | | | |
+| `Multi-Task CNN`| | | | |
 
 
 
