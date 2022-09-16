@@ -4,8 +4,8 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 
 | Detection Strategy | Description | Speed | Limitations | Positives|Improvements|
 |:---| :---| :---| :---| :---| :---|
-| `HAAR Classifier` | | | Detection of Non-Faces as Faces at some instances <br> No detection of faces when the lighting is less| |Asynchronous Programming<br> Multi-Threading|
-| `Multi-Task CNN`| | | | |Asynchronous Programming<br> Multi-Threading|
+| `HAAR Classifier` | | | Detection of Non-Faces as Faces at some instances <br> No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
+| `Multi-Task CNN`| | | | |- Asynchronous Programming<br> - Multi-Threading|
 | `MediaPipe Model`| | ~30 FPS| | | |
 
 
