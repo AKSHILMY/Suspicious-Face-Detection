@@ -20,9 +20,9 @@ Thus, a convolutional neural network was attempted to be employed.
 #### 3. Face Detection Machine Learning Model from MediaPipe Python Package 
 
 | Detection Strategy | Description | Approximate FPS | Limitations | Positives|
-|:---|
-| `HAAR Classifier (_Boosted_)` |
-| `MTCNN`|
+|:---| :---| :---| :---| :---|
+| `HAAR Classifier (_Boosted_)` | | | | |
+| `MTCNN`| | | | |
 
 
 
