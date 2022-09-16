@@ -23,6 +23,7 @@ Thus, a convolutional neural network was attempted to be employed.
 |:---| :---| :---| :---| :---|
 | `HAAR Classifier` | | | | |
 | `Multi-Task CNN`| | | | |
+| `MediaPipe ML Model`| | | | |
 
 
 
