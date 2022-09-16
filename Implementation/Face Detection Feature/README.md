@@ -3,10 +3,10 @@ The detection of the face is an essential feature for this monitoring system. Th
 Also, the monitoring system ensures that the student solely does his work. Here is when the detection of multiple faces comes to play.
 
 | Detection Strategy | Description | Speed | Limitations | Positives|Improvements|
-|:---|:---|:---  |:---|:---|:---|
+|:---|:---|:-----|:---|:---|:---|
 | `HAAR Classifier` | | | Detection of Non-Faces as Faces at some instances <br> No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
 | `Multi-Task CNN`| | | | |- Asynchronous Programming<br> - Multi-Threading|
-| `MediaPipe Model`| | ~30 FPS| | | |
+| `MediaPipe Model`| | ~30FPS| | | |
 
 
 
