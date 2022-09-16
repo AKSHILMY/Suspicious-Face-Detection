@@ -13,3 +13,6 @@ Thus, a convolutional neural network was attempted to be employed.
 #### Multi-Task Convolution Neural Network (MTCNN)
 - The MTCCN detection is capable of detecting the face under a considerably less lighting with higher reliability than the boosted HAAR classifier. 
 
+
+#### Using Face Detection ML Model For MediaPipe Python Package 
+
