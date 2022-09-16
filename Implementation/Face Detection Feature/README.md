@@ -8,6 +8,7 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 | `Multi-Task CNN`| | | | |- Asynchronous Programming<br> - Multi-Threading|
 | `MediaPipe Model`| | ~30 | | | |
 
+#### The Background Of the Selected MediaPipe Face Detection Model
 
 
 
