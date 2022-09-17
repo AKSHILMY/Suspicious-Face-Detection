@@ -6,9 +6,9 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 
 | Detection Strategy | Description | Mean Speed _FPS_ | Limitations | Positives|Improvements|
 |:---|:---|:---|:---|:---|:---|
-| <a href=https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/AKSHILMY-FaceDetection-ReadMeupdate/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20Haar.ipynb>`HAAR Classifier`</a> | | ~ 1 | - Detection of Non-Faces as Faces at some instances <br> - No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
-| `Multi-Task CNN`| | ~ 2 | | |- Asynchronous Programming<br> - Multi-Threading|
-| `MediaPipe Face Detection Model`| | ~ 45 | | - Lightweight Object Detection <br> - Effective GPU utilization <br> - Quality Prediction <br> - Allows Estimation Face Rotation (roll angle) | |
+| <a href= https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20Haar.ipynb>`HAAR Classifier`</a> | | ~ 1 | - Detection of Non-Faces as Faces at some instances <br> - No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
+| <a href= https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20MTCNN.ipynb>`Multi-Task CNN`</a>| | ~ 2 | | |- Asynchronous Programming<br> - Multi-Threading|
+| <a href= https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20Tensor%20Flow%20and%20Media%20Pipe.ipynb>`MediaPipe Face Detection Model`</a>| | ~ 45 | | - Lightweight Object Detection <br> - Effective GPU utilization <br> - Quality Prediction <br> - Allows Estimation Face Rotation (roll angle) | |
 
 ### The Background Of the Selected _MediaPipe Face Detection_ Model
 This model is based on the face detector _BlazeFace_. 
