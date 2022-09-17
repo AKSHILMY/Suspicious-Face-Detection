@@ -8,9 +8,10 @@ Also, the monitoring system ensures that the student solely does his work. Here 
 |:---|:---|:---|:---|:---|:---|
 | `HAAR Classifier` | | | Detection of Non-Faces as Faces at some instances <br> No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
 | `Multi-Task CNN`| | | | |- Asynchronous Programming<br> - Multi-Threading|
-| `MediaPipe Model`| | ~ 45 | | | |
+| `MediaPipe Model`| | ~ 45 | | | - Lightweight Object Detection <br> - Effective GPU utilization <br> - Quality Prediction <br> - Allows Estimation Face Rotation (roll angle) |
 
 ### The Background Of the Selected _MediaPipe Face Detection_ Model
+This model is based on the face detector _BlazeFace_. 
 ### Resources
 - [MediaPipe Face Detection Model](https://google.github.io/mediapipe/solutions/face_detection)  
 - [Blaze Face](https://arxiv.org/abs/1907.05047)
