@@ -2,13 +2,20 @@
 The detection of the face is an essential feature for this monitoring system. Though this detection could serve as an attendance recording procedure at the intial stage of the monitoring process, the availability of the student through out the monitoring session is highly important.
 Also, the monitoring system ensures that the student solely does his work. Here is when the detection of multiple faces comes to play.
 
-#### HAAR Classifier with AdaBoost algorithm
-- Less Detection Reliablity
-  - Detection of Non-Faces as Faces at some instances
-  - No detection of faces when the lighting is less  
-  ![Detection of Non-Faces as Faces at some instances](../../assets/images/team_photo.png)
+### **Overview Of the Tested Face Detection Stategies**
 
-Thus, a convolutional neural network was attempted to be employed.
-#### Multi-Task Convolution Neural Network (MTCNN)
-- The MTCCN detection is capable of detecting the face under a considerably less lighting with higher reliability than the boosted HAAR classifier. 
-  - Some of the detections under less lightning are shown below.
+| Detection Strategy | Description | Mean Speed _FPS_ | Limitations | Positives|Improvements|
+|:---|:---|:---|:---|:---|:---|
+| <a href= https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20Haar.ipynb>`HAAR Classifier`</a> | | ~ 1 | - Detection of Non-Faces as Faces at some instances <br> - No detection of faces when the lighting is less| |- Asynchronous Programming<br> - Multi-Threading|
+| <a href= https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20MTCNN.ipynb>`Multi-Task CNN`</a>| | ~ 2 | | |- Asynchronous Programming<br> - Multi-Threading|
+| <a href= https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/Face%20Detection%20using%20Tensor%20Flow%20and%20Media%20Pipe.ipynb>`MediaPipe Face Detection Model`</a>| | ~ 45 | | - Lightweight Object Detection <br> - Effective GPU utilization <br> - Quality Prediction <br> - Allows Estimation Face Rotation (roll angle) | |
+
+### The Background Of the Selected _MediaPipe Face Detection_ Model
+This model is based on the face detector _BlazeFace_. 
+### Resources
+- [MediaPipe Face Detection Model](https://google.github.io/mediapipe/solutions/face_detection)  
+- [Blaze Face](https://arxiv.org/abs/1907.05047)
+- [MobileNetV1/V2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html)
+
+
+
