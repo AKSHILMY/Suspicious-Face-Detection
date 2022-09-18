@@ -10,7 +10,7 @@ This project is based on the detection of suspicious behavior of a person analys
 5. Analysis of Facial Expressions 
 6. Tracking of Eye
 
-A warning system is implemented in this project to notify the officials about the detections so that immediate necessary actions could be taken. The detection details are sent to a remote server from which the details are rendered to a WebApp GUI to be viewed by the official.
+A warning system is implemented in this project to notify the officials about the detections so that immediate necessary actions could be taken. The detection details are sent from a desktop application to a remote server from which the details are rendered to a WebApp GUI to be viewed by the official.
 
 ## Plan for the proposed Project
 ![See Plan](./assets/images/plan.jpg?raw=true "Plan")
