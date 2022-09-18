@@ -17,5 +17,5 @@ This model is based on the face detector _BlazeFace_.
 - [Blaze Face](https://arxiv.org/abs/1907.05047)
 - [MobileNetV1/V2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html)
 
-
+_Note that this page is not yet fully update_
 Click <a href=https://github.com/AKSHILMY/Suspicious-Face-Detection#basic-face-detection>here</a> to return to main page
