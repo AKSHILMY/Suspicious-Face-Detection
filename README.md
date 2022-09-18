@@ -6,16 +6,16 @@ This project is based on the detection of suspicious behavior of a person analys
 
 1. Desktop Application
 
-- Detection Algorithm
+  - Detection Algorithm
 
-  - Detection of Face : _Identifying 'No Face' and 'Multiple Faces' detection scenarios_
-  - Detection of Light Intensity : _possesses a threshold value_
-  - Detection of Lip Movement : _recognition of speaking_
-  - Detection of Head Orientation : _possesses a threshold angle of orientation_
-  - Analysis of Facial Expressions 
-  - Tracking of Eye
+    - Detection of Face : _Identifying 'No Face' and 'Multiple Faces' detection scenarios_
+    - Detection of Light Intensity : _possesses a threshold value_
+    - Detection of Lip Movement : _recognition of speaking_
+    - Detection of Head Orientation : _possesses a threshold angle of orientation_
+    - Analysis of Facial Expressions 
+    - Tracking of Eye
 
-- Warning System
+  - Warning System
 
 2. Database
 3. Remote Server
