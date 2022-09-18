@@ -2,20 +2,10 @@
 
 ## Application Scenario 
 
-This project is based on the detection of suspicious behavior of a person analysing the facial aspects of the respective person. The project primarily focuses the implementation to be done as a lab monitoring system. The system would consist of the following features:
+This project is based on the detection of suspicious behavior of a person analysing the facial aspects of the respective person. The project primarily focuses the implementation to be done as a lab monitoring system. The overview of the system is shown below.
 
-1. Desktop Application
-      - Detection Algorithm
-        - Detection of Face : _Identifying 'No Face' and 'Multiple Faces' detection scenarios_
-        - Detection of Light Intensity : _possesses a threshold value_
-        - Detection of Lip Movement : _recognition of speaking_
-        - Detection of Head Orientation : _possesses a threshold angle of orientation_
-        - Analysis of Facial Expressions 
-        - Tracking of Eye
-      - Warning System
-2. Database
-3. Remote Server
-4. Web Application
+![See Plan](./assets/images/plan.jpg?raw=true "Application Scenario")
+
 
 
 A warning system is implemented in this project to notify the officials about the detections so that immediate necessary actions could be taken. The detection details are sent from a desktop application to a remote server from which the details are rendered to a WebApp GUI to be viewed by the official. Important detection details are stored in a database.
