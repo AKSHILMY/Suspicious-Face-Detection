@@ -14,4 +14,4 @@ A warning system is implemented in this project to notify the officials about th
 
 ## Basic Face Detection
 The detection of the face is an essential feature for this monitoring system. Though this detection could serve as an attendance recording procedure at the intial stage of the monitoring process, the availability of the student through out the monitoring session is highly important. Also, the monitoring system ensures that the student solely does his work. Here is when the detection of multiple faces comes to play. <br>
-<a href="https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/AKSHILMY-FaceDetection-ReadMeupdate/Implementation/Face%20Detection%20Feature/README.md#basic-face-detection">See more ...</a>
+<a href="https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/README.md">See more ...</a>
