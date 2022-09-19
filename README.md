@@ -4,7 +4,7 @@
 
 This project is based on the detection of suspicious behavior of a person analysing the facial aspects of the respective person. The project primarily focuses the implementation to be done as a lab monitoring system. The overview of the system is shown below.
 
-![See Plan](./assets/images/plan.jpg?raw=true "Application Scenario")
+![See Plan](./assets/images/application_scenario.jpg?raw=true "Application Scenario")
 
 
 
