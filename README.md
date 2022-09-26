@@ -8,8 +8,14 @@ The overview of the system is shown below.
 
 ![See Plan](./assets/images/application_scenario.jpg?raw=true "Application Scenario")
 
+<<<<<<< Updated upstream
 As observed in the above image, a computer installed with a desktop application that runs in the background is provided to the user (student) and a web application is provided to the officials. The desktop application consists of real-time detection and warning algorithms that detect the suspicious behavior of the user and provide instant warnings to user and the officials. The detection algorithms focus on the certain important aspects of the face as well as some external aspects to make the detection possible. 
 The detection details and warnings are sent from the computer to the remote server from which the details are updated to a database and also rendered to a web application. The warnings are notified to the officials by means of this web application. The warnings for the students are displayed in the computer desktop itself so that the student could adhere to the monitoring process.
+=======
+As observed in the above image, a computer installed with a desktop application that runs in the background is provided to the user (student) and a web application is provided to the officials. The desktop application consists of real-time detection and warning algorithms that detect the suspicious behavior of the user and provide instant warnings to user and the officials. The detection algorithms focus on the certain important aspects of the face as well as some external aspects to make the detection possible.
+<br/>
+	The detection details and warnings are sent from the computer to the remote server from which the details are updated to a database and also rendered to a web application. The warnings are notified to the officials by means of this web application. The warnings for the students are displayed in the computer desktop itself so that the student could adhere to the monitoring process.
+>>>>>>> Stashed changes
 
 ## Plan for the proposed Project
 Note that there can be unexpected delays and changes to the this plan. 
@@ -19,3 +25,7 @@ Note that there can be unexpected delays and changes to the this plan.
 ## Basic Face Detection
 The detection of the face is an essential feature for this monitoring system. Though this detection could serve as an attendance recording procedure at the intial stage of the monitoring process, the availability of the student through out the monitoring session is highly important. Also, the monitoring system ensures that the student solely does his work. Here is when the detection of multiple faces comes to play. <br>
 <a href="https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Face%20Detection%20Feature/README.md">See more ...</a>
+
+## Eye Tracking
+The movement of the eye needs to be tracked in order to understand the line of sight of the user. The user needs to maintain his line of sight within a threshold value provided. This threshold value is determined using the distance between users, the distance between the computer and the user, and the angle of rotation of the eye along vertical and horizontal axes.<br>
+Click <a href="https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Eye%Tracking%20Feature/README.md"> here </a> to understand the approach towards acheiving the eye tracking detection system.
