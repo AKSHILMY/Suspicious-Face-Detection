@@ -23,4 +23,4 @@ The detection of the face is an essential feature for this monitoring system. Th
 
 ## Eye Tracking
 The movement of the eye needs to be tracked in order to understand the line of sight of the user. The user needs to maintain his line of sight within a threshold value provided. This threshold value is determined using the distance between users, the distance between the computer and the user, and the angle of rotation of the eye along vertical and horizontal axes.<br>
-Click <a href="https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Eye%Tracking%20Feature/README.md"> here </a> to understand the approach towards acheiving the eye tracking detection system.
+Click <a href="https://github.com/AKSHILMY/Suspicious-Face-Detection/blob/main/Implementation/Eye%20Tracking%20Feature/README.md"> here </a> to understand the approach towards acheiving the eye tracking detection system.
