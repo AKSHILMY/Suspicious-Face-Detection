@@ -1,3 +1,3 @@
 ## Approach
 
-![See Approach](../../assets/images/eye_track_approach.jpg?raw=true "Eye track")
+<img src="../../assets/images/eye_track_approach.jpg" alt="drawing" width="200"/>
