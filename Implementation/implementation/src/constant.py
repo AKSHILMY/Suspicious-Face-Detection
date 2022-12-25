@@ -1,7 +1,7 @@
 from cv2 import FONT_HERSHEY_SIMPLEX
 
 
-class Constants:
+class model:
     FRAME_SEQ_LEN = 25
 
     # Add keys to this hash for supporting other action classes. e.g. CLASS_HASH = {'other': 0, 'speech': 1, 'chew': 2, 'laugh': 3}
