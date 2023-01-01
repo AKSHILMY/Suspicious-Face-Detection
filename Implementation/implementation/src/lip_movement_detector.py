@@ -15,7 +15,7 @@ frames = []
 frame_num = 0
 state = "Initializing"
 input_sequence = []
-Constants.model = load_model(Constants.model)
+model = load_model(Constants.model)
 
 
 class LipMovementDetector(Detector):
@@ -49,8 +49,8 @@ class LipMovementDetector(Detector):
         dist = math.sqrt((p2_x - p1_x) ** 2 + (p2_y - p1_y) ** 2)
         return dist
 
-    def collect_frame(self):
-        global cap, frames, frame_num, state, input_sequence
+    def collect_frame(self, cap):
+        global frames, frame_num, state, input_sequence
         while not cap.isOpened():
             cap = cv2.VideoCapture(0)
             cv2.waitKey(1000)
@@ -88,7 +88,7 @@ class LipMovementDetector(Detector):
         #     print('Collected' + str(len(frames)) + ' frames from the web cam.')
         #     return True
 
-    def detect_lip_movement(self, input_sequence_list, model, self.dets):
+    def detect(self, input_sequence_list, model, dets):
         # get the most recent N sequences where N=FRAME_SEQ_LEN
         seq = input_sequence[-1 * Constants.FRAME_SEQ_LEN:]
         f = []

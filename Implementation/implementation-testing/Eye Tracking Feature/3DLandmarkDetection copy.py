@@ -1,12 +1,13 @@
-from turtle import left
 import cv2
 import mediapipe as mp
 from sympy import Plane, Point3D, Line3D
-import numpy as np
+from math import pi
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 maxima = 0
+thresh_hold_angle = 60
+thresh_hold_time = 10
 # For webcam input:
 cap = cv2.VideoCapture(0)
 with mp_pose.Pose(
@@ -57,10 +58,12 @@ with mp_pose.Pose(
 
             # get the angle between line P and z plane
             rad_angle = z_plane.angle_between(lineP)
-            degree_angle = rad_angle*180/np.pi
+            degree_angle = rad_angle*180/pi
             print(degree_angle)
-            if np.abs(degree_angle) > maxima:
-                maxima = np.abs(degree_angle)
+            if abs(degree_angle) > maxima:
+                maxima = abs(degree_angle)
+            if abs(degree_angle) > thresh_hold_angle:
+                break
 
         # Draw the pose annotation on the image.
         image.flags.writeable = True
