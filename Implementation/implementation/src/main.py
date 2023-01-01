@@ -1,24 +1,37 @@
-from cv2 import VideoCapture
+from cv2 import VideoCapture, waitKey, destroyAllWindows
 from face_detector import FaceDetector
 from lip_movement_detector import LipMovementDetector
+from head_orientation_detector import HeadOrientationDetector
 
 cap = VideoCapture(0)
 face_detector = FaceDetector()
 lip_movement_detector = LipMovementDetector()
+head_orientation_detector = HeadOrientationDetector()
 
 while cap.isOpened():
     success, image = cap.read()
     if not success:
         print("No Camera Detected")
         break
-    face_detection_type = face_detector.detect(image)
-    print(face_detection_type)
-    if face_detection_type["suspicious"] == "True":
-        print("Suspicious")
-        break
-    else:
-        frame, lip_movement_detections = lip_movement_detector.collect_frame(
-            cap)
+    # face_detection_type = face_detector.detect(image)
+    # print(face_detection_type)
+    # if face_detection_type["suspicious"] == "True":
+    #     print("Suspicious")
+    # else:
 
+    #     # frame, lip_movement_detections = lip_movement_detector.collect_frame(
+    #     #     cap)
+
+    # head-orientation-detection
+    head_orientation_detector.set_threshold_angle(50)
+    det = head_orientation_detector.detect(image)
+    if not det:
+        continue
+    else:
+        print("Head Orientation Angle Exceeded: ", det)
+        break
+    # if waitKey(1) & 0xFF == ord('q'):
+    #     destroyAllWindows()
+    #     break
 
 cap.release()

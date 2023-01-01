@@ -11,3 +11,4 @@ class Constants:
     }
     model = "implementation\models\model.h5"
     cv_font = FONT_HERSHEY_SIMPLEX
+    default_threshold_angle_head_orientation = 60
