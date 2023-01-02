@@ -5,12 +5,8 @@ from math import pi
 from constant import Constants
 from cv2 import imshow, cvtColor, COLOR_RGB2BGR, COLOR_BGR2RGB, flip
 
-mp_drawing = mp.solutions.drawing_utils
-mp_drawing_styles = mp.solutions.drawing_styles
+
 mp_pose = mp.solutions.pose
-maxima = 0
-thresh_hold_angle = 60
-thresh_hold_time = 10
 
 
 class HeadOrientationDetector(Detector):
@@ -24,30 +20,13 @@ class HeadOrientationDetector(Detector):
     def set_threshold_angle(self, angle):
         self.threshold_angle = angle
 
-    def get_nose_point(self, frame, results):
-        nose_coordinates = {'x': results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].x * frame.shape[0], 'y': results.pose_landmarks.landmark[
-            mp_pose.PoseLandmark.NOSE].y * frame.shape[1], 'z': results.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].z * frame.shape[2]}
-        nose_point = Point3D(
-            nose_coordinates['x'], nose_coordinates['y'], nose_coordinates['z'], evaluate=False)
-        print(f'N: {nose_point}')
-        return nose_point
-
-    def get_left_ear_point(self, frame, results):
-        left_ear_coordinates = {'x': results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_EAR].x * frame.shape[0], 'y': results.pose_landmarks.landmark[
-            mp_pose.PoseLandmark.LEFT_EAR].y * frame.shape[1], 'z': results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_EAR].z * frame.shape[2]}
-        left_ear_point = Point3D(
-            left_ear_coordinates['x'], left_ear_coordinates['y'], left_ear_coordinates['z'], evaluate=False)
-        print(f'L: {left_ear_point}')
-        return left_ear_point
-
-    def get_right_ear_point(self, frame, results):
-        right_ear_coordinates = {'x': results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_EAR].x * frame.shape[0], 'y': results.pose_landmarks.landmark[
-            mp_pose.PoseLandmark.RIGHT_EAR].y * frame.shape[1], 'z': results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_EAR].z * frame.shape[2]}
-
-        right_ear_point = Point3D(
-            right_ear_coordinates['x'], right_ear_coordinates['y'], right_ear_coordinates['z'], evaluate=False)
-        print(f'R: {right_ear_point}')
-        return right_ear_point
+    def get_point(self, frame, results, pose_landmark):
+        coordinates = {'x': results.pose_landmarks.landmark[pose_landmark].x * frame.shape[0], 'y': results.pose_landmarks.landmark[
+            pose_landmark].y * frame.shape[1], 'z': results.pose_landmarks.landmark[pose_landmark].z * frame.shape[2]}
+        point = Point3D(
+            coordinates['x'], coordinates['y'], coordinates['z'], evaluate=False)
+        print(f'P : {point}')
+        return point
 
     def get_angle_of_orientation(self, line_p, z_plane):
         right_side_check = True
@@ -61,6 +40,8 @@ class HeadOrientationDetector(Detector):
 
     def draw_face(self, frame, results):
         # Draw the pose annotation on the image.
+        mp_drawing = mp.solutions.drawing_utils
+        mp_drawing_styles = mp.solutions.drawing_styles
         frame.flags.writeable = True
         frame = cvtColor(frame, COLOR_RGB2BGR)
         mp_drawing.draw_landmarks(
@@ -82,9 +63,12 @@ class HeadOrientationDetector(Detector):
         if results.pose_landmarks:
             # print(frame.shape)
 
-            nose_point = self.get_nose_point(frame, results)
-            left_ear_point = self.get_left_ear_point(frame, results)
-            right_ear_point = self.get_right_ear_point(frame, results)
+            nose_point = self.get_point(
+                frame, results, mp_pose.PoseLandmark.NOSE)
+            left_ear_point = self.get_point(
+                frame, results, mp_pose.PoseLandmark.LEFT_EAR)
+            right_ear_point = self.get_point(
+                frame, results, mp_pose.PoseLandmark.RIGHT_EAR)
             # LR = Line3D(right_ear_point, left_ear_point)
             M = (left_ear_point+right_ear_point)/2
             # Get the line that passes through N and the Line LR

@@ -4,24 +4,26 @@ from keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 from skimage.transform import resize
 
-import numpy as np
+from numpy import array
 import cv2
 import math
 
 from cvzone.FaceMeshModule import FaceMeshDetector
 from constant import Constants
 
-frames = []
-frame_num = 0
-state = "Initializing"
-input_sequence = []
-model = load_model(Constants.model)
-
 
 class LipMovementDetector(Detector):
     def __init__(self):
         self.detector = FaceMeshDetector(maxFaces=1)
         self.dets = None
+        self.model = load_model(Constants.model)
+        self.frames = []
+        self.state = "Initializing"
+        self.input_sequence = []
+
+    def set_model(self, model_path):
+        self.model = model_path
+        return self.model
 
     def get_facial_landmark_vectors_from_frame(self, frame):
         print('Fetching face detections and landmarks...')
@@ -50,21 +52,20 @@ class LipMovementDetector(Detector):
         return dist
 
     def collect_frame(self, cap):
-        global frames, frame_num, state, input_sequence
         while not cap.isOpened():
             cap = cv2.VideoCapture(0)
             cv2.waitKey(1000)
             print("Wait for the header")
         flag, frame = cap.read()
-        print("Capturing frame: " + str(frame_num))
+        # print("Capturing frame: " + str(self.frame_num))
         if flag:
             (self.dets, facial_points_coordinates,
              facial_points_vector) = self.get_facial_landmark_vectors_from_frame(frame)
             if not self.dets or not facial_points_vector:
                 return frame
-            frames.append(frame)
-            cv2.putText(frame, str(frame_num), (2, 10), Constants.cv_font,
-                        0.3, (255, 255, 255), 1, cv2.LINE_AA)
+            self.frames.append(frame)
+            # cv2.putText(frame, str(self.frame_num), (2, 10), Constants.cv_font,
+            #             0.3, (255, 255, 255), 1, cv2.LINE_AA)
             # draw a box showing the detected face
             for k, d in enumerate(self.dets):
                 left = d[234][0]
@@ -76,10 +77,10 @@ class LipMovementDetector(Detector):
                 # draw the state label below the face
                 cv2.rectangle(frame, (left, bottom), (right,
                                                       bottom + 10), (0, 0, 255), cv2.FILLED)
-                cv2.putText(frame, state, (left + 2, bottom + 10 - 3),
+                cv2.putText(frame, self.state, (left + 2, bottom + 10 - 3),
                             Constants.cv_font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
-            input_sequence.append(facial_points_vector)
-        frame_num += 1
+            self.input_sequence.append(facial_points_vector)
+        # self.frame_num += 1
         return frame, self.dets
 
         # if len(frames) < 25:
@@ -87,10 +88,24 @@ class LipMovementDetector(Detector):
         # else:
         #     print('Collected' + str(len(frames)) + ' frames from the web cam.')
         #     return True
+    def get_label(self, y_pred):
+        y_pred_max = y_pred[0].argmax()
+        # if y_pred_max == 1 and y_pred[0][0] < speak_threshold:
+        #     y_pred_max = 0
 
-    def detect(self, input_sequence_list, model, dets):
+        # print('y_pred_max=' + str(y_pred_max))
+
+        for k in Constants.CLASS_HASH:
+            if y_pred_max == Constants.CLASS_HASH[k]:
+                self.state = k
+                break
+        return self.state
+
+    def detect(self):
+        if len(self.frames) < Constants.FRAME_SEQ_LEN:
+            return False, False
         # get the most recent N sequences where N=FRAME_SEQ_LEN
-        seq = input_sequence[-1 * Constants.FRAME_SEQ_LEN:]
+        seq = self.input_sequence[-1 * Constants.FRAME_SEQ_LEN:]
         f = []
         for coords in seq:
             part_41 = (int(coords[2 * 41]), int(coords[2 * 41 + 1]))
@@ -111,36 +126,14 @@ class LipMovementDetector(Detector):
         scaler = MinMaxScaler()
         arr = scaler.fit_transform(f)
 
-        x_data = np.array([arr])
+        x_data = array([arr])
 
         # y_pred is already categorized
-        y_pred = model.predict_on_batch(x_data)
+        y_pred = self.model.predict_on_batch(x_data)
 
         # print('y_pred=' + str(y_pred) + ' shape=' + str(y_pred.shape))
 
         # convert y_pred from categorized continuous to single label
-        return self.frame, y_pred
-
-    def get_label(self, y_pred):
-        y_pred_max = y_pred[0].argmax()
-        # if y_pred_max == 1 and y_pred[0][0] < speak_threshold:
-        #     y_pred_max = 0
-
-        # print('y_pred_max=' + str(y_pred_max))
-
-        for k in Constants.CLASS_HASH:
-            if y_pred_max == Constants.CLASS_HASH[k]:
-                state = k
-                break
-
-        # redraw the label
-        for i, d in enumerate(self.self.dets):
-            # draw the state label below the face
-            left = d[234][0]
-            right = d[454][0]
-            bottom = d[152][1]
-            cv2.rectangle(self.frame, (left, bottom), (right,
-                                                       bottom + 10), (0, 0, 255), cv2.FILLED)
-            cv2.putText(self.frame, state, (left + 2, bottom +
-                        10 - 3), Constants.cv_font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
-        return state
+        video = self.frames.copy()
+        self.get_label(y_pred)
+        return (video, self.state)

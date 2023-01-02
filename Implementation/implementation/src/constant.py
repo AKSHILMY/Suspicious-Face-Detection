@@ -9,6 +9,6 @@ class Constants:
         'silent': 0,
         'speaking': 1
     }
-    model = "implementation\models\model.h5"
+    model = "Implementation\implementation\models\model.h5"
     cv_font = FONT_HERSHEY_SIMPLEX
     default_threshold_angle_head_orientation = 60

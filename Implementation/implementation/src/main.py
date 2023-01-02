@@ -13,23 +13,24 @@ while cap.isOpened():
     if not success:
         print("No Camera Detected")
         break
-    # face_detection_type = face_detector.detect(image)
-    # print(face_detection_type)
-    # if face_detection_type["suspicious"] == "True":
-    #     print("Suspicious")
-    # else:
-
-    #     # frame, lip_movement_detections = lip_movement_detector.collect_frame(
-    #     #     cap)
-
-    # head-orientation-detection
-    head_orientation_detector.set_threshold_angle(50)
-    det = head_orientation_detector.detect(image)
-    if not det:
-        continue
+    face_detection_type = face_detector.detect(image)
+    print(face_detection_type)
+    if face_detection_type["suspicious"] == "True":
+        print("Suspicious")
     else:
-        print("Head Orientation Angle Exceeded: ", det)
-        break
+
+        frame, lip_movement_detections = lip_movement_detector.collect_frame(
+            cap)
+        video, speak_state = lip_movement_detector.detect()
+        print("Lip Movement State : ", speak_state)
+        # head-orientation-detection
+        head_orientation_detector.set_threshold_angle(50)
+        det = head_orientation_detector.detect(image)
+        if not det:
+            continue
+        else:
+            print("Head Orientation Angle Exceeded: ", det)
+            break
     # if waitKey(1) & 0xFF == ord('q'):
     #     destroyAllWindows()
     #     break
