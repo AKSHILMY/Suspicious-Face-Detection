@@ -6,7 +6,7 @@ This project is based on the detection of suspicious behavior of a person analyz
 <br/>
 The overview of the system is shown below.
 
-<img src="./assets/images/Application_scenario.png?raw=true" alt="Application Scenario" height="400" /><br>
+<img src="./assets/images/application_scenario.png?raw=true" alt="Application Scenario" height="400" /><br>
 
 As observed in the above image, a computer installed with an application that runs in the background is provided to the user (student) and a web application is accessed by the officials. The application consists of real-time detection and algorithms that detect the suspicious behavior of the user and provide instant warnings to the officials. The detection algorithms focus on the certain important aspects of the face as well as some external aspects to make the detection possible.
 	The detection details and warnings are sent from the computer to the remote server from which the details are updated to a database and also rendered to a web application. The warnings are notified to the officials by means of this web application. 
