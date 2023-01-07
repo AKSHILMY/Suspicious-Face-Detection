@@ -79,11 +79,11 @@ class HeadOrientationDetector(Detector):
                 0, 0, -1000), Point3D(0, 1000, 0))
             degree_angle, left_side = self.get_angle_of_orientation(
                 line_p, z_plane)
-            if draw:
-                self.draw_face(frame, results)
             if degree_angle > self.threshold_angle:
                 return {"angle": degree_angle, "side": left_side}
-            return False
+        if draw:
+            self.draw_face(frame, results)
+        return False
 
         # Draw the pose annotation on the image.
         # image.flags.writeable = True
