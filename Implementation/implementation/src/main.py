@@ -19,15 +19,15 @@ while cap.isOpened():
         print("Suspicious")
         break
     else:
-        # lip-movement-detection
-        frame, lip_movement_detections = lip_movement_detector.collect_frame(
-            cap)
-        video, speak_state = lip_movement_detector.detect()
-        print("Lip Movement State : ", speak_state)
+        # # lip-movement-detection
+        # frame, lip_movement_detections = lip_movement_detector.collect_frame(
+        #     cap)
+        # video, speak_state = lip_movement_detector.detect()
+        # print("Lip Movement State : ", speak_state)
         # if speak_state == 'speaking':
-        #     # break
+        #     break
         # head-orientation-detection
-        head_orientation_detector.set_threshold_angle(50)
+        head_orientation_detector.set_threshold_angle(10)
         det = head_orientation_detector.detect(image)
         if not det:
             continue
