@@ -1,5 +1,7 @@
-from flask import Flask, request, render_template
-import pyrebase4
+
+
+import pyrebase
+import json
 
 config = {
     "apiKey": "AIzaSyBT50mv3eHbe2l3vir1fl0ucF2wzJKA0fc",
@@ -16,25 +18,33 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
+from flask import *
 
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def basic():
-    if request.method == 'POST':
-        if request.form['submit'] == 'add':
-
-            name = request.form['name']
-            db.child("todo").push(name)
-            todo = db.child("todo").get()
-            to = todo.val()
-            return render_template('index.html', t=to.values())
-        elif request.form['submit'] == 'delete':
-            db.child("todo").remove()
-        return render_template('index.html')
-    return render_template('index.html')
-
+@app.route("/", methods=['POST', 'GET'])
+def getThis():
+    if request.method == "POST":
+        textInput = request.get_json()
+        print(textInput)
+        db.child("detections").push(textInput)
+        return render_template("index.html")
+    else:
+        detects = db.child("detections").order_by_key().limit_to_last(1).get()
+        detect = detects.val()
+        print(type(detect))
+        return render_template("index.html",text=detect.values())
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+"""
+if __name__ == '__main__':
+    app.run(debug=True)
+"""
+
+
+
+if __name__ == '__main__':
+	app.run(debug=True)
