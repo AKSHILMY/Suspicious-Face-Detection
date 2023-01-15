@@ -49,7 +49,7 @@ class FaceDetector(Detector):
             self.detection_type["time-stamp"] = datetime.now().strftime(
                 "%m/%d/%Y, %H:%M:%S")
             print(f"Detection Type: {self.detection_type}")
-            # self.draw(image, results.detections)
+            self.draw(image, results.detections)
             img_num += 1
             return self.detection_type
 

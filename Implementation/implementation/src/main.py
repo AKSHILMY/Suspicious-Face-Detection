@@ -33,6 +33,7 @@ while cap.isOpened():
         detection_type['face'] = "True"
         # break
     else:
+        detection_type['face']=="False"
         # lip-movement-detection
         if not detection:
             try:
@@ -44,10 +45,13 @@ while cap.isOpened():
                     detection = True
                     detection_type['lip'] = "True"
                     # break
+                else:
+                    detection_type['lip']=="False"
                 # head-orientation-detection
                 head_orientation_detector.set_threshold_angle(50)
                 det = head_orientation_detector.detect(image)
                 if not det:
+                    detection_type['head']=="False"
                     continue
                 else:
                     print("Head Orientation Angle Exceeded: ", det)
@@ -66,9 +70,6 @@ while cap.isOpened():
                 print("Done")
         except:
             pass
-    detection_type['face'] = "False"
-    detection_type['lip'] = "False"
-    detection_type['head'] = "False"
     detection = False
 cap.release()
 destroyAllWindows()

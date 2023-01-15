@@ -36,15 +36,14 @@ def getThis():
         print(type(detect))
         return render_template("index.html",text=detect.values())
 
+@app.route("/result", methods=["GET"])
+def getResult():
+    detects = db.child("detections").order_by_key().limit_to_last(1).get()
+    detect = detects.val()
+    print(type(detect))
+    print(list(dict(detect).values())[0])
+    result = list(dict(detect).values())[0]
+    return f"{result}"
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-"""
-if __name__ == '__main__':
-    app.run(debug=True)
-"""
-
-
-
-if __name__ == '__main__':
-	app.run(debug=True)

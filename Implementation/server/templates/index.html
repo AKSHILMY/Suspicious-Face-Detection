@@ -4,10 +4,15 @@
   <head>
     <script>
       setInterval(function(){
-        $.get("/", function(data) {
-            // your code to update the page with new data
-        });
-      }, 30000);
+        var result = document.getElementById("result");
+        fetch("/result").then((t)=>{
+          console.log(t);
+          t.text().then((data)=>{
+            console.log(data);
+            result.innerText = data;
+          })
+        })
+      }, 10);
     </script>
 
     <meta charset="utf-8">
@@ -74,9 +79,7 @@ https://templatemo.com/tm-557-grad-school
               <h6>Lab Monitoring System</h6>
               <h2><em>Lab</em> Mon</h2>
               <div class="main-button">
-                {% for l in text %}
-                  <div class="scroll-to-section"><a href="#section2">{{l}}</a></div>
-                  {% endfor %}
+                  <div class="scroll-to-section"><a href="#section2"><span id="result"></span></a></div>
                 </div>
           </div>
       </div>
